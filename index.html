@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>Login</title>
+    <script src="login.js"></script>
+    <script src="angular.min.js"></script>
+<style>
+    h3{
+        color:white;
+    }
+</style>
+</head>
+
+<body bgcolor="pink" ng-app="">
+      <center>
+            <h2 style="color: #7a0000; font-size:50px">Shri Kalakshetram Music Academy</h2>
+    <div style="background-color: #7a0000;
+    width: 250px;
+    height: 500px;
+    border: 15px solid rgb(158, 89, 89);
+    padding-bottom: 250px;
+    padding-top: 30px;
+    padding-left: 60px;
+    padding-right: 60px;
+    margin: 20px;
+    box-shadow: 5px 10px 5px grey;" class="container">
+       <center><h2 style="color: #ffffff; font-size:40px">Login</h2></center>
+       <h3 style="color:white;">Username: </h3><input type="text">
+       <h3 style="color:white;">Password: </h3><input type="password" ng-maxlength=5>
+       <br><br>    
+        <p style="color: white;" ng-mousemove="mm=mm+1" ng-mouseover="mo=mo+1" ng-click="c=c+1" ng-mousedown="md=md+1"
+        ng-mouseup="mu=mu+1" ng-mouseleave="ml=ml+1">You mouse movements are tracked for security purposes
+        <br><br>Mouse movement: {{mm}}<br>
+        <br>Mouse over: {{mo}}<br>
+        <br>Mouse clicks: {{c}}<br>
+        <br>Mouse down moves: {{md}}<br>
+        <br>Mouse up moves: {{mu}}<br>
+        <br>Mouse Leaves: {{ml}}</br></p>
+        <label style="color:white;">
+         <input type="checkbox" ng-model="checked">
+          I agree to the given credentials
+         </label><br><br>
+         <a href="home.html">
+             <button ng-model="button" ng-disabled="!checked">Login</button>
+         </a>
+    </div>
+    </center>
+</body>
+</html>

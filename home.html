@@ -1,0 +1,136 @@
+
+<html>
+  <head>
+      <title>Shri Kalakshetram</title>  <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>  
+      <script src="angular.min.js"></script>
+      <script src="services.js"></script>
+  </head>
+  <style>
+  #courses {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #courses td, #courses th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #courses tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #courses tr:hover {background-color: #ddd;}
+  
+  #courses th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+      }
+      
+      li {
+        float: left;
+      }
+      
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      
+      li a:hover:not(.active) {
+        background-color: rgb(209, 135, 135);
+      }
+      
+      .active {
+        background-color: #ad2c2c;
+      }
+  </style>
+  <body ng-app="ServiceApp">
+  <div class="container-fluid">
+    <ul>
+      <li><a class="active" href="#home">Home</a></li>
+      <li><a href="#Gurus">Gurus</a></li>
+      <li><a href="#contacts">Contacts</a></li>
+      <li><a href="#Teams">Teams</a></li>
+   </ul>
+    <div class="row">
+  <div class="col-md-7">
+    <img src="https://jmsacacademy.files.wordpress.com/2015/03/instrumentos-dos-indios-11.png">
+    <img src="https://globalmusic.ph/wp-content/uploads/2018/07/Why-do-we-love-music_-1.png">
+  </div>
+  <div class="col-md-5">
+    <div style="background-color: #7a0000;
+      width: 530px;
+      height: 1200px;
+      border: 15px solid rgb(158, 89, 89);
+      padding-bottom: 250px;
+      padding-top: 30px;
+      padding-left: 60px;
+      padding-right: 60px;
+      margin: 20px;
+      box-shadow: 5px 10px 5px grey;" class="container">
+         <div id="courses">
+           <p style="color: sandybrown; font-size: 23px"><b>Shri Kalakshetram<info style="font-size: 23px"></info></b></p>
+            <br><h3 style="font-size: 18px; color: white"><b>ADD NEW COURSE:</b></h3>
+            
+            <div id="C_Adder" ng-controller="ServiceController1 as C_Adder">
+              <h3 style="font-size: 18px; color: white"><b>Course Name:</b></h3>
+                <input type="text" ng-model="C_Adder.CName" placeholder="Course Name">
+              <h3 style="font-size: 18px; color: white"><b>Course Ratings:</b></h3>
+                <input type="text" ng-model="C_Adder.cRatings"  placeholder="Course Rating">
+            <br><br>
+              <button ng-click="C_Adder.Add()"><b>Add Course</b></button>
+            <div class="error" style="color:white; font-size: 18px;">{{C_Adder.errorMessage}}</div>
+            
+            <br>
+              <center>
+                <h3 style="color: #ffffff; font-size:37px">Available courses</h3>
+              </center>
+            
+          <div ng-controller="ServiceController2 as C_remove">
+            <h3 style="font-size: 18px; color: white"><b>Filter Courses:</b></h3>
+            <input type="text" ng-model="search" placeholder="Course Name">
+            <table border=1 style="background-color: wheat;">  
+              <tr style="color: brown; font-size: 17px">
+                <td><b>COURSES</b></td>
+                <td><b>RATINGS</b></td>
+                <td><b>REMOVE</b></td>
+              </tr>
+              <tr style="color: brown; font-size: 17px" ng-repeat="Course in C_remove.show | filter: search">
+                <td><b>{{Course.CourseName}}</b></td> 
+                <td><b>{{Course.Ratings}}</b></td>
+                <td><button ng-click="C_remove.Remove($index);"><b>Remove Course</b></button></td>
+              </tr>
+             </table>
+             <div class="error" style="color:white; font-size: 18px;">{{C_remove.errorMessage}}</div>
+             <div class="error" style="color:white; font-size: 18px;">{{C_Adder.errorMessage}}</div>
+          </div>       
+        </div>  
+        
+            
+            </div>
+
+        </div>
+         </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </body>
+  </html>
