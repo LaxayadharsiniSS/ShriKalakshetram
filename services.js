@@ -54,7 +54,7 @@
     function ServiceController1(CoursesFac)
     {
         var C_Adder = this;
-        var C_AdderFac = CoursesFac(0); // admin status = 1 who has rights to add courses 
+        var C_AdderFac = CoursesFac(1); // admin status = 1 who has rights to add courses 
         C_Adder.CName='';
         C_Adder.cRatings='';
         C_Adder.Add = function(){
@@ -69,7 +69,7 @@
     function ServiceController2(CoursesFac)
     {
         var C_remove = this;
-        var C_removeFac = CoursesFac(0);
+        var C_removeFac = CoursesFac(1);
         C_remove.Remove = function(C_Index){  
             try{
                 C_removeFac.removeCourse(C_Index);
